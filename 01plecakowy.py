@@ -8,8 +8,6 @@ def knapSack(W, weight, val):
     n = len(val)
     table = [[0 for x in range(W + 1)] for x in range(n + 1)]
     prod = [[[] for x in range(W + 1)] for x in range(n + 1)]
-    wys(prod)
-
 
     for i in range(n + 1):
         for j in range(W + 1):
@@ -34,15 +32,23 @@ def knapSack(W, weight, val):
                 table[i][j] = table[i - 1][j]
                 prod[i][j] = prod[i - 1][j].copy()
 
-    wys(table)
-    print('rozwiązanie w ostatniej komórce')
-    wys(prod)
+    # wys(table)
+    # print('rozwiązanie w ostatniej komórce')
+    # wys(prod)
 
-    return table[n][W]
+    return table[n][W], prod[n][W]
 
+def na_vector(vec, num):
+    vec_x = []
+    for i in range(num):
+        if i in vec:
+            vec_x.append(1)
+        else:
+            vec_x.append(0)
+    return vec_x
 
 val = [3, 2, 1.5]
 wt = [4, 3, 1]
 W = 4
-
-print(knapSack(W, wt, val))
+val, x = knapSack(W, wt, val)
+print(na_vector(x, 3)) #wektor rozwiązania
