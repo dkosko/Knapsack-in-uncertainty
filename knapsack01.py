@@ -46,9 +46,3 @@ def na_vector(vec, num):
         else:
             vec_x.append(0)
     return vec_x
-
-val = [3, 2, 1.5]
-wt = [4, 3, 1]
-W = 4
-val, x = knapSack(W, wt, val)
-print(na_vector(x, 3)) #wektor rozwiązania

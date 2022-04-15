@@ -1,7 +1,7 @@
 from random import randint
 import itertools
 import numpy as np
-
+from knapsack01 import knapSack as ks
 
 def knapSack(W, w, c, x):
     if np.dot(w, x) <= W:
@@ -30,10 +30,11 @@ for x in lst:
     for i in range(n):
         for i in range(len(c)):
             c[i] = randint(c_intervals[i][0], c_intervals[i][1])
-        sum += knapSack(W, w, c, x)
+        a = ks(W, w, c)[0]
+        sum += ks(W, w, c)[0]
         avg = sum / n
     results.append(avg)
 
 max_i = results.index(max(results))
 print(max(results))
-print(lst[max_i])
+print(lst[max_i]) 
