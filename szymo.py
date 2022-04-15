@@ -28,5 +28,7 @@ for i in range(40):
 #obliczanie KS wartosci dla kazdego scenariusza
 for i in S:
     print("najlepsza wartosc dla danego scenariusza")
-    print(ks(C, w, i))
+    v1, s1 = ks(C, w, i)
+    s1 = nw(s1, len(p_intervals))
+    print(v1, s1)
 
